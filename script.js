@@ -65,6 +65,7 @@ const taskInput = document.getElementById('task-input');
 // Selecting the unordered list that will display tasks
 const taskList = document.getElementById('task-list');
 
+
 // Step 1: Setup Event Listener for Page Load
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -137,3 +138,54 @@ document.addEventListener('DOMContentLoaded', function() {
     loadTasks(); // Initial task load from Local Storage
 
 });
+
+
+// Function to add a new task
+function addTask() {
+    const taskText = taskInput.value.trim();
+    
+    // Check if the task is not empty
+    if (taskText === "") {
+        alert("Please enter a task.");
+        return;
+    }
+
+    // Create a new list item (li) for the task
+    const li = document.createElement('li');
+    li.textContent = taskText;
+
+    // Optionally add a class to the new task element using classList.add
+    li.classList.add('task-item');  // Adds a class 'task-item' to the li element
+
+    // Create a remove button for the task
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remove';
+
+    // Optionally add a class to the remove button using classList.add
+    removeBtn.classList.add('remove-btn');  // Adds a class 'remove-btn' to the button
+
+    // Add event listener to the remove button to delete the task
+    removeBtn.onclick = function() {
+        taskList.removeChild(li);
+    };
+
+    // Append the remove button to the li
+    li.appendChild(removeBtn);
+
+    // Append the new task to the task list
+    taskList.appendChild(li);
+
+    // Clear the input field after adding the task
+    taskInput.value = "";
+}
+
+// Attach event listener to the Add Task button
+addButton.addEventListener('click', addTask);
+
+// Optionally allow adding tasks with the Enter key
+taskInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        addTask();
+    }
+});
+

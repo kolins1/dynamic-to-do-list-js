@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const taskInput = document.getElementById('task-input'); // Input field for new tasks
     const taskList = document.getElementById('task-list'); // UL to display tasks
 
+
+
     // Step 3: Create the addTask Function
     function addTask() {
         // Step 4: Retrieve and trim the input value
@@ -16,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Please enter a task!"); // Alert if the task is empty
             return; // Exit the function if the task is empty
         }
-
         // Step 6: Task Creation and Removal
         // Create a new li element for the task
         const listItem = document.createElement('li');
@@ -55,6 +56,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+// Selecting the Add Task button (adjusted to use 'add-task-btn')
+const addButton = document.getElementById('add-task-btn');
+
+// Selecting the task input field
+const taskInput = document.getElementById('task-input');
+
+// Selecting the unordered list that will display tasks
+const taskList = document.getElementById('task-list');
 
 // Step 1: Setup Event Listener for Page Load
 document.addEventListener('DOMContentLoaded', function() {
